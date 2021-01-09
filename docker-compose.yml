@@ -1,0 +1,17 @@
+# yaml 配置
+version: '2.2'
+services:
+  node_proxy:
+    image: registry.cn-hangzhou.aliyuncs.com/product_list/node_proxy:v1
+    container_name: node_proxy
+    restart: always
+    user: root
+    privileged: true
+    tty: true
+    stdin_open: true
+    expose:
+      - '9080'
+    ports:
+      - "9090:9080"
+    command: /bin/bash ./bin/start.sh
+
