@@ -4,5 +4,6 @@ WORKDIR /workspace/node_proxy
 COPY / .
 RUN source /etc/profile \
 && ls \
-&& pm2 --version
+&& pm2 --version \
+&& npm install --unsafe-perm
 EXPOSE 9080
