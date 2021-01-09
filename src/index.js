@@ -39,7 +39,7 @@ app.use(morgan('dev_log'))
 app.use(morgan('dev_log', {stream: accessLogStream}))//写入日志文件
 
 app.get('/', (req, res) => {
-  res.json({text: 'Hello ,I am node proxy', ...req.query})
+  res.json({text: 'Hello ,I am node proxy',time:new Date(), ...req.query})
 })
 
 
