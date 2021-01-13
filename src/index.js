@@ -72,6 +72,26 @@ app.use('/node_api', createProxyMiddleware({
   router: {},
 }))
 
+app.use('/cc_passport', createProxyMiddleware({
+  'target': 'https://beta.passport.coocaa.com',
+  'pathRewrite': {
+    '^/cc_passport': ''
+  },
+  changeOrigin: true, // needed for virtual hosted sites
+  ws: true, // proxy websockets
+  router: {},
+}))
+
+app.use('/cc_wx', createProxyMiddleware({
+  'target': 'https://beta-wx.coocaa.com',
+  'pathRewrite': {
+    '^/cc_wx': ''
+  },
+  changeOrigin: true, // needed for virtual hosted sites
+  ws: true, // proxy websockets
+  router: {},
+}))
+
 //设置允许跨域访问该服务.
 const server = app.listen(9080, '0.0.0.0', () => {
   const host = server.address().address
