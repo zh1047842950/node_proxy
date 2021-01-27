@@ -93,6 +93,13 @@ app.use('/cc_wx', createProxyMiddleware({
   router: {},
 }))
 
+app.use('/exchange-shop', createProxyMiddleware({
+  'target': 'https://goldshop.coocaa.com',
+  changeOrigin: true, // needed for virtual hosted sites
+  ws: true, // proxy websockets
+  router: {},
+}))
+
 //设置允许跨域访问该服务.
 const server = app.listen(9080, '0.0.0.0', () => {
   const host = server.address().address
